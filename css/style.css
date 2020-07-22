@@ -1,0 +1,70 @@
+* {
+  font-family: Arial, Helvetica, sans-serif; }
+
+li {
+  list-style-type: none; }
+
+.header {
+  margin-bottom: 20px; }
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: bold; }
+
+input {
+  width: 230px; }
+
+.forma ul {
+  margin-top: 50px;
+  position: absolute;
+  right: 8%;
+  top: 0;
+  z-index: 1;
+  background-color: #343a40;
+  color: white;
+  width: 230px;
+  list-style-type: none;
+  padding: 10px; }
+  .forma ul a > li {
+    text-decoration: none;
+    color: white; }
+  .forma ul li:hover {
+    text-decoration: none;
+    color: orange;
+    font-weight: 700; }
+  .forma ul a {
+    text-decoration: none; }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100px;
+  margin-top: 20px;
+  width: 100%; }
+
+/************    homepage    **************/
+.card {
+  margin-bottom: 40px;
+  text-align: center; }
+
+/*****************     singleShow page     *****************/
+.poster img {
+  width: 100%; }
+
+.about div {
+  margin-bottom: 5px; }
+
+.descript {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .descript .description {
+    text-align: justify; }
+
+#aka {
+  padding-left: 0px; }
+
+#seasons {
+  padding-left: 0px; }
+
+/*# sourceMappingURL=style.css.map */
