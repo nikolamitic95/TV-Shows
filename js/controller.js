@@ -4,7 +4,7 @@ import {
 
 import {
     renderShows, renderSingleShow, makingList, getInput, getInputValue,
-    renderSeasons, renderCastList, renderFullCast, renderCrewList, renderAkaList,
+    renderSeasonsList, renderCastList, renderFullCast, renderCrewList, renderAkaList,
     renderFullCrew, renderFullAka, renderFullSeasons, renderEpisodes
 } from './ui.js';
 
@@ -37,7 +37,7 @@ export const startSingleShow = () => {
     const id = renderId()
     fetchShow(id, renderSingleShow);
     searchList()
-    fetchShowSeasons(id, renderSeasons)
+    fetchShowSeasons(id, renderSeasonsList)
     fetchCast(id, renderCastList);
     fetchCrew(id, renderCrewList);
     fetchAka(id, renderAkaList);

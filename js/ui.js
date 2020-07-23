@@ -8,7 +8,6 @@ const $showName = document.querySelector(".abouttitle");
 const $description = document.querySelector(".description");
 
 
-
 /*****************      render main page     *****************/
 
 export const renderShows = (shows) => {
@@ -39,11 +38,12 @@ export const renderShows = (shows) => {
 /*******************      render single show page      ********************/
 
 export const renderSingleShow = (show) => {
+    
     const $img = document.createElement("img");
-    $img.setAttribute("src", show.image.original);
+    $img.setAttribute("src", show.image ? show.image.original : '../images/no-image.jpg');
     $showName.textContent = show.name;
     $poster.appendChild($img);
-    $description.innerHTML = show.summary;
+    $description.innerHTML = show.summary ? show.summary : "No description on the show...";
 }
 
 /*****************     dropdown search list     **********************/
@@ -68,7 +68,7 @@ export const makingList = (show) => {
 
 /************      render seasons list     ******************/
 
-export const renderSeasons = (data) => {
+export const renderSeasonsList = (data) => {
     const id = window.location.search;
 
     const $ul = document.querySelector(".seasons ul");
@@ -152,27 +152,27 @@ export const renderAkaList = (akas) => {
 /*******************      render season page     *******************/
 
 export const renderFullSeasons = (seasons) => {
-    
-    let allShowCards = '';
+
+    let allSeasonCards = '';
     $title.innerHTML = `Seasons (${seasons.length})`
 
-    for (let i = 0; i < seasons.length; i++) {
-        let $img = seasons[i].image ? seasons[i].image.medium : '../images/no-image.jpg'
-        let $premiereDate = seasons[i].premiereDate ? seasons[i].premiereDate : "no premere date"
-        let $endDate = seasons[i].endDate ? seasons[i].endDate : "no end date"
+    seasons.forEach(season => {
+        let $img = season.image ? season.image.medium : '../images/no-image-355.jpg'
+        let $premiereDate = season.premiereDate ? season.premiereDate : "no premere date"
+        let $endDate = season.endDate ? season.endDate : "no end date"
 
-        allShowCards +=
+        allSeasonCards +=
             `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
            <img src=${$img} class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">${$premiereDate} - ${$endDate}</h5>
-                <a href="episodes.html?=${seasons[i].id}" > <button>Episodes</button> </a>
+                <a href="episodes.html?=${season.id}" class="btn btn-primary">View Episodes</a>
         </div>
     </div>
 </div>`
-    }
-    $listOfShows.innerHTML = allShowCards;
+    });
+    $listOfShows.innerHTML = allSeasonCards;
 }
 
 /******************   render actors page    *****************/
@@ -181,15 +181,15 @@ export const renderFullCast = (actors) => {
 
     $title.innerHTML = `Cast (${actors.length})`
     let $actorCard = "";
-    
+
     actors.forEach(actor => {
-        let $img = actor.person.image ? actor.person.image.medium : '../images/no-image.jpg'
+        let $img = actor.person.image ? actor.person.image.medium : '../images/no-image-355.jpg'
         $actorCard += `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
             <img src="${$img}" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">${actor.person.name}</h5>
-                <h6 class="card-title">(${actor.character.name})</h6>
+                <h6 class="card-subTitle">(${actor.character.name})</h6>
         </div>
     </div>
 </div>`
@@ -205,14 +205,14 @@ export const renderFullCrew = (crew) => {
     let $crewCard = "";
 
     crew.forEach(cre => {
-        let $img = cre.person.image ? cre.person.image.medium : '../images/no-image.jpg'
+        let $img = cre.person.image ? cre.person.image.medium : '../images/no-image-355.jpg'
 
         $crewCard += `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
         <img src="${$img}" class="card-img-top" alt="">
             <div class="card-body">
                 <h6 class="card-title">${cre.type}</h6>
-                <h5 class="card-title">${cre.person.name}</h5>
+                <h5 class="card-subTitle">(${cre.person.name})</h5>
         </div>
     </div>
 </div>`
@@ -247,22 +247,22 @@ export const renderFullAka = (akas) => {
 /*******************      render episode page     *******************/
 
 export const renderEpisodes = (episodes) => {
-    
+
     let allEpisodeCards = '';
     $title.innerHTML = `Episodes (${episodes.length})`
 
-    for (let i = 0; i < episodes.length; i++) {
-        let $img = episodes[i].image ? episodes[i].image.medium : '../images/no-image.jpg'
+    episodes.forEach(episode => {
+        let $img = episode.image ? episode.image.medium : '../images/no-image-142.jpg'
 
         allEpisodeCards +=
             `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
            <img src=${$img} class="card-img-top" alt="">
             <div class="card-body">
-                <h5 class="card-title">${episodes[i].name}</h5>
+                <h5 class="card-title">${episode.name}</h5>
         </div>
     </div>
 </div>`
-    }
+    });
     $listOfShows.innerHTML = allEpisodeCards;
 }

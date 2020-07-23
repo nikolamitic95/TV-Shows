@@ -1,6 +1,7 @@
 * {
   font-family: Arial, Helvetica, sans-serif; }
 
+/************    header    **************/
 .wrapper {
   padding: 0px !important; }
   .wrapper .header {
@@ -14,6 +15,7 @@ h1 {
   margin-bottom: 20px;
   font-weight: bold; }
 
+/************    search    **************/
 .search ul {
   margin-top: 50px;
   position: absolute;
@@ -35,6 +37,47 @@ h1 {
   .search ul a {
     text-decoration: none; }
 
+@media only screen and (max-width: 592px) {
+  .search ul {
+    position: absolute;
+    right: 5%;
+    width: 41%; } }
+@media only screen and (max-width: 500px) {
+  .search ul {
+    position: absolute;
+    right: 6%;
+    width: 47%; } }
+@media screen and (max-width: 768px) and (min-width: 592px) {
+  .search ul {
+    position: absolute;
+    right: 10%;
+    width: 36%; } }
+@media screen and (max-width: 998px) and (min-width: 768px) {
+  .search ul {
+    position: absolute;
+    right: 12%;
+    width: 25%; } }
+@media screen and (max-width: 1040px) and (min-width: 998px) {
+  .search ul {
+    position: absolute;
+    right: 4%;
+    width: 23%; } }
+@media screen and (max-width: 1150px) and (min-width: 1040px) {
+  .search ul {
+    position: absolute;
+    right: 8%;
+    width: 21%; } }
+@media screen and (max-width: 1200px) and (min-width: 1150px) {
+  .search ul {
+    position: absolute;
+    right: 10%;
+    width: 20%; } }
+@media screen and (max-width: 1350px) and (min-width: 1200px) {
+  .search ul {
+    position: absolute;
+    right: 7%;
+    width: 18%; } }
+/************    footer    **************/
 .wrapper_footer {
   padding: 0px !important; }
   .wrapper_footer .footer {
@@ -55,6 +98,8 @@ h1 {
   .card .card-title {
     font-weight: 700;
     font-size: 19px; }
+  .card .card-subTitle {
+    font-weight: 600; }
 
 .card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
@@ -72,12 +117,10 @@ h1 {
   .descript .description {
     text-align: justify; }
 
-#aka {
-  padding-left: 0px; }
-
-#seasons {
-  padding-left: 0px; }
-
+@media only screen and (max-width: 768px) {
+  .poster {
+    margin-bottom: 25px; } }
+/************    episodes, seasons, crew, cast, akas    **************/
 .title {
   font-weight: 700;
   text-align: center;
