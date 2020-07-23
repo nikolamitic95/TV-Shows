@@ -1,0 +1,22 @@
+{
+  "name": "@nikolamitic95/show",
+  "version": "1.0.0",
+  "description": "TV Shows is an application that allows you to search for existing TV shows, take a closer look at the summary, information about the seasons, episods, actors, authors and the show's country. Data provided by tvmaze.com. <br/>\r Fully responsive.",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolamitic95/TV-Shows.git"
+  },
+  "author": "Nikola Mitic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolamitic95/TV-Shows/issues"
+  },
+  "homepage": "https://github.com/nikolamitic95/TV-Shows#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
