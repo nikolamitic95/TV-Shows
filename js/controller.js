@@ -1,5 +1,12 @@
-import { fetchShows, fetchShow, fetchSearchShow, fetchShowSeasons, fetchCast, fetchCrew, fetchAka } from './data.js';
-import { renderShows, renderSingleShow, makingList, getInput, getInputValue, renderSeasons, renderCastList, renderFullCast, renderCrewList, renderAkaList, renderFullCrew, renderFullAka, renderFullSeasons} from './ui.js';
+import {
+    fetchShows, fetchShow, fetchSearchShow, fetchShowSeasons, fetchCast, fetchCrew, fetchAka, fetchEpisodes,
+} from './data.js';
+
+import {
+    renderShows, renderSingleShow, makingList, getInput, getInputValue,
+    renderSeasons, renderCastList, renderFullCast, renderCrewList, renderAkaList,
+    renderFullCrew, renderFullAka, renderFullSeasons, renderEpisodes
+} from './ui.js';
 
 
 const renderId = () => {
@@ -36,7 +43,6 @@ export const startSingleShow = () => {
     fetchAka(id, renderAkaList);
 }
 
-
 export const startCastList = () => {
     const id = renderId();
     fetchCast(id, renderFullCast)
@@ -50,13 +56,19 @@ export const startCrewList = () => {
     searchList();
 }
 
-export const startAkaList = () =>{
+export const startAkaList = () => {
     const id = renderId();
     fetchAka(id, renderFullAka)
     searchList();
 }
-export const startSeasonsList = () =>{
+export const startSeasonsList = () => {
     const id = renderId();
     fetchShowSeasons(id, renderFullSeasons)
+    searchList();
+}
+
+export const startEpisodePage = () =>{
+    const id = renderId();
+    fetchEpisodes(id, renderEpisodes)
     searchList();
 }

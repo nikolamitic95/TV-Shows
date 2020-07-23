@@ -41,3 +41,9 @@ export const fetchAka = (id, onSuccess) => {
         onSuccess(data);
     })
 }
+
+export const fetchEpisodes = (id, onSuccess) => {
+    fetch(`http://api.tvmaze.com/seasons/${id}/episodes`, (data) => {
+        onSuccess(data);
+    })
+}

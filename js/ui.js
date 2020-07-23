@@ -1,7 +1,8 @@
 const $listOfShows = document.querySelector(".listOfShows");
+const $title = document.querySelector('.title')
 export const getInput = () => document.querySelector(".form-control");
 export const getInputValue = () => getInput().value;
-const $searchList = document.querySelector(".forma");
+const $searchList = document.querySelector(".search");
 const $poster = document.querySelector(".poster");
 const $showName = document.querySelector(".abouttitle");
 const $description = document.querySelector(".description");
@@ -25,7 +26,7 @@ export const renderShows = (shows) => {
         allShowCards +=
             `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
-            <a href="about.html?=${shows[i].id}" target="_blank"><img src="${shows[i].image.medium}" class="card-img-top" alt=""></a>
+            <a href="about.html?=${shows[i].id}" ><img src="${shows[i].image.medium}" class="card-img-top" alt=""></a>
             <div class="card-body">
                 <h5 class="card-title">${shows[i].name}</h5>
         </div>
@@ -58,7 +59,6 @@ export const makingList = (show) => {
         const $li = document.createElement("li");
         const $link = document.createElement("a");
         $link.setAttribute("href", `about.html?=${show[i].show.id}`)
-        $link.setAttribute("target", "_blank")
         $li.textContent = show[i].show.name;
         $link.appendChild($li);
         $ulSearch.appendChild($link);
@@ -73,25 +73,21 @@ export const renderSeasons = (data) => {
 
     const $ul = document.querySelector(".seasons ul");
     $ul.innerHTML = `<h3>Seasons (${data.length})</h3>`
-    if (data.length > 5) {
-        for (let i = 0; i < 5; i++) {
-            const $li = document.createElement("li");
-            $li.textContent = `${data[i].premiereDate} - ${data[i].endDate}`;
-            $ul.appendChild($li)
-        }
-        const $dot = document.createElement("h6")
-        const $link = document.createElement("a");
-        $link.setAttribute("href", `seasons.html${id}`);
-        $link.setAttribute("target", "_blank")
-        $dot.textContent = ". . . click for more seasons";
-        $link.appendChild($dot)
+
+    const $dot = document.createElement("h6")
+    const $link = document.createElement("a");
+    $link.setAttribute("href", `seasons.html${id}`);
+    $dot.textContent = ". . . click for seasons details";
+    $link.appendChild($dot)
+
+    for (let i = 0; i < 5; i++) {
+        let $premiereDate = data[i].premiereDate ? data[i].premiereDate : "no premere date"
+        let $endDate = data[i].endDate ? data[i].endDate : "no end date"
+
+        const $li = document.createElement("li");
+        $li.textContent = `${$premiereDate} - ${$endDate}`;
+        $ul.appendChild($li)
         $ul.appendChild($link);
-    } else {
-        data.forEach(element => {
-            const $li = document.createElement("li");
-            $li.textContent = `${element.premiereDate} - ${element.endDate}`;
-            $ul.appendChild($li)
-        });
     }
 }
 
@@ -102,37 +98,16 @@ export const renderCastList = (actors) => {
     const $ul = document.querySelector(".cast ul");
     const $link = document.createElement("a");
     const $str = document.createElement("h6");
-    $str.textContent = ". . . see Full Cast";
-    $ul.innerHTML = `<h3>Cast</h3>`;
+    $str.textContent = ". . . click for cast details";
+    $ul.innerHTML = `<h3>Cast (${actors.length})</h3>`
     $link.setAttribute("href", `cast.html${id}`);
-    $link.setAttribute("target", "_blank");
+    $link.appendChild($str);
     for (let i = 0; i < 5; i++) {
         const $li = document.createElement("li");
         $li.textContent = actors[i].person.name;
         $ul.appendChild($li);
+        $ul.appendChild($link);
     }
-    $link.appendChild($str);
-    $ul.appendChild($link);
-}
-
-/******************   render full actors list on new page    *****************/
-
-export const renderFullCast = (actors) => {
-
-    let $actorCard = "";
-
-    actors.forEach(actor => {
-        $actorCard += `<div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card">
-            <img src="${actor.person.image.medium}" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">${actor.person.name}</h5>
-                <h6 class="card-title">"${actor.character.name}"</h6>
-        </div>
-    </div>
-</div>`
-    })
-    $listOfShows.innerHTML = $actorCard;
 }
 
 /******************     render crew list      *******************/
@@ -142,32 +117,102 @@ export const renderCrewList = (crew) => {
     const $ul = document.querySelector(".crew ul");
     const $link = document.createElement("a");
     const $str = document.createElement("h6");
-    $str.textContent = ". . . see Full Crew"
-    $ul.innerHTML = `<h3>Crew</h3>`;
+    $str.textContent = ". . . click for crew details"
+    $ul.innerHTML = `<h3>Crew (${crew.length})</h3>`
     $link.setAttribute("href", `crew.html${id}`);
-    $link.setAttribute("target", "_blank");
+    $link.appendChild($str);
     for (let i = 0; i < 5; i++) {
         const $li = document.createElement("li");
         $li.textContent = crew[i].type + " : " + crew[i].person.name;
         $ul.appendChild($li);
+        $ul.appendChild($link);
     }
-    $link.appendChild($str);
-    $ul.appendChild($link);
 }
 
-/*************    render full crew list on new page  *****************/
+/****************       render aka list        *******************/
+
+export const renderAkaList = (akas) => {
+
+    const id = window.location.search;
+    const $ul = document.querySelector(".aka ul");
+    const $link = document.createElement("a");
+    const $str = document.createElement("h6");
+    $str.textContent = ". . . click for aka's details"
+    $ul.innerHTML = `<h3>Aka's (${akas.length})</h3>`
+    $link.setAttribute("href", `aka.html${id}`);
+    $link.appendChild($str);
+    for (let i = 0; i < 5; i++) {
+        const $li = document.createElement("li");
+        $li.textContent = akas[i].name + " : " + akas[i].country.name;
+        $ul.appendChild($li);
+        $ul.appendChild($link);
+    }
+}
+
+/*******************      render season page     *******************/
+
+export const renderFullSeasons = (seasons) => {
+    
+    let allShowCards = '';
+    $title.innerHTML = `Seasons (${seasons.length})`
+
+    for (let i = 0; i < seasons.length; i++) {
+        let $img = seasons[i].image ? seasons[i].image.medium : '../images/no-image.jpg'
+        let $premiereDate = seasons[i].premiereDate ? seasons[i].premiereDate : "no premere date"
+        let $endDate = seasons[i].endDate ? seasons[i].endDate : "no end date"
+
+        allShowCards +=
+            `<div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+           <img src=${$img} class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">${$premiereDate} - ${$endDate}</h5>
+                <a href="episodes.html?=${seasons[i].id}" > <button>Episodes</button> </a>
+        </div>
+    </div>
+</div>`
+    }
+    $listOfShows.innerHTML = allShowCards;
+}
+
+/******************   render actors page    *****************/
+
+export const renderFullCast = (actors) => {
+
+    $title.innerHTML = `Cast (${actors.length})`
+    let $actorCard = "";
+    
+    actors.forEach(actor => {
+        let $img = actor.person.image ? actor.person.image.medium : '../images/no-image.jpg'
+        $actorCard += `<div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+            <img src="${$img}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">${actor.person.name}</h5>
+                <h6 class="card-title">(${actor.character.name})</h6>
+        </div>
+    </div>
+</div>`
+    })
+    $listOfShows.innerHTML = $actorCard;
+}
+
+/*************    render crew page  *****************/
 
 export const renderFullCrew = (crew) => {
+
+    $title.innerHTML = `Crew (${crew.length})`
     let $crewCard = "";
 
-    crew.forEach(element => {
+    crew.forEach(cre => {
+        let $img = cre.person.image ? cre.person.image.medium : '../images/no-image.jpg'
 
-        console.log(element)
         $crewCard += `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
+        <img src="${$img}" class="card-img-top" alt="">
             <div class="card-body">
-                <h6 class="card-title">${element.type}</h6>
-                <h5 class="card-title">${element.person.name}</h5>
+                <h6 class="card-title">${cre.type}</h6>
+                <h5 class="card-title">${cre.person.name}</h5>
         </div>
     </div>
 </div>`
@@ -175,54 +220,49 @@ export const renderFullCrew = (crew) => {
     $listOfShows.innerHTML = $crewCard;
 }
 
-/****************       render aka list        *******************/
+/********************       render aka page       *********************/
 
-export const renderAkaList = (data) => {
+export const renderFullAka = (akas) => {
 
-    const id = window.location.search;
-    const $ul = document.querySelector(".aka ul");
-    const $link = document.createElement("a");
-    const $str = document.createElement("h6");
-    $str.textContent = ". . . see Full Aka's"
-    $ul.innerHTML = `<h3>AKA's</h3>`;
-    $link.setAttribute("href", `aka.html${id}`);
-    $link.setAttribute("target", "_blank");
-    for (let i = 0; i < 5; i++) {
-        const $li = document.createElement("li");
-        $li.textContent = data[i].name + " : " + data[i].country.name;
-        $ul.appendChild($li);
-    }
-    $link.appendChild($str);
-    $ul.appendChild($link);
-}
+    $title.innerHTML = `Aka's (${akas.length})`
+    let $akasCard = "";
 
-/********************       render full aka list on new page       *********************/
+    akas.forEach(aka => {
+        let $name = aka.name ? aka.name : 'no name'
+        let $countryName = aka.country ? aka.country.name : 'no country name'
+        let $timezone = aka.country ? aka.country.timezone : 'no timezone'
 
-export const renderFullAka = (data) => {
-    const $ul = document.querySelector(".aka ul");
-    $ul.innerHTML = `<h3>AKA's (${data.length})</h3>`;
-    data.forEach(element => {
-        const $li = document.createElement("li");
-
-        if (element.country === null) {
-            element.country = " / ";
-            $li.textContent = `${element.name} - ${element.country}`;
-            $ul.appendChild($li);
-        } else {
-            $li.textContent = `${element.name} - ${element.country.name}`;
-            $ul.appendChild($li);
-        }
+        $akasCard += `<div class="col-12 ">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${$name} - ${$countryName}</h5>
+                <h5 class="card-title">timezone: ${$timezone}</h5>
+        </div>
+    </div>
+</div>`
     })
+    $listOfShows.innerHTML = $akasCard;
 }
-/*******************      render full season list on new page     *******************/
 
-export const renderFullSeasons = (data) => {
-    const $ul = document.querySelector(".seasons ul");
-    $ul.innerHTML = `<h3>Seasons (${data.length})</h3>`
+/*******************      render episode page     *******************/
 
-    data.forEach(element => {
-        const $li = document.createElement("li");
-        $li.textContent = `${element.premiereDate} - ${element.endDate}`;
-        $ul.appendChild($li)
-    });
+export const renderEpisodes = (episodes) => {
+    
+    let allEpisodeCards = '';
+    $title.innerHTML = `Episodes (${episodes.length})`
+
+    for (let i = 0; i < episodes.length; i++) {
+        let $img = episodes[i].image ? episodes[i].image.medium : '../images/no-image.jpg'
+
+        allEpisodeCards +=
+            `<div class="col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+           <img src=${$img} class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">${episodes[i].name}</h5>
+        </div>
+    </div>
+</div>`
+    }
+    $listOfShows.innerHTML = allEpisodeCards;
 }

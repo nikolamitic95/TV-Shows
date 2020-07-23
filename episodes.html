@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Bit Show</title>
+    <title></title>
 </head>
 
 <body>
     <div class="container-fluid wrapper">
+
         <nav class="navbar navbar-light bg-dark header">
             <div class="container">
-                <a class="navbar-brand text-light header_title" href="">BitShow</a>
+                <a class="navbar-brand text-light header_title" href="./index.html">BitShow</a>
                 <div class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <div class="search">
+                    <div class="row search">
                     </div>
                 </div>
             </div>
@@ -25,22 +26,22 @@
     </div>
 
     <div class="container">
-        <h1 class="text-center">Popular shows</h1>
-        <div class="row listOfShows"></div>
         <div class="row">
+            <div class="col-12">
+                <h3 class="title"></h3>
+            </div>
+        </div>
+
+        <div class="row listOfShows">
 
         </div>
     </div>
 
-    <div class='footer-container'>
-        <div class='content'>
-            <div class="container-fluid wrapper_footer">
-                <div class="footer navbar navbar-light bg-dark">
-                    <div class="row">
-                        <div class="col-12 offset-0">
-                            <h6 class="text-center text-white footer_title">Copyright&copy; Nikola Mitic 2020</h6>
-                        </div>
-                    </div>
+    <div class="container-fluid wrapper_footer">
+        <div class="footer navbar navbar-light bg-dark">
+            <div class="row">
+                <div class="col-12 offset-0">
+                    <h6 class="text-center text-white footer_title">Copyright&copy; Nikola Mitic 2020</h6>
                 </div>
             </div>
         </div>
@@ -56,7 +57,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script type="module">
-        import { startHomepage } from './js/controller.js'; startHomepage();
+        import { startEpisodePage } from './js/controller.js'; startEpisodePage();
     </script>
 </body>
 

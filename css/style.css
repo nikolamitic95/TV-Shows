@@ -1,52 +1,63 @@
 * {
   font-family: Arial, Helvetica, sans-serif; }
 
-li {
-  list-style-type: none; }
-
-.header {
-  margin-bottom: 20px; }
+.wrapper {
+  padding: 0px !important; }
+  .wrapper .header {
+    margin-bottom: 25px; }
+  .wrapper li {
+    list-style-type: none; }
+  .wrapper .header_title {
+    font-size: 25px; }
 
 h1 {
   margin-bottom: 20px;
   font-weight: bold; }
 
-input {
-  width: 230px; }
-
-.forma ul {
+.search ul {
   margin-top: 50px;
   position: absolute;
-  right: 8%;
+  right: 9%;
   top: 0;
   z-index: 1;
   background-color: #343a40;
   color: white;
-  width: 230px;
+  width: 17%;
   list-style-type: none;
   padding: 10px; }
-  .forma ul a > li {
+  .search ul a > li {
     text-decoration: none;
     color: white; }
-  .forma ul li:hover {
+  .search ul li:hover {
     text-decoration: none;
     color: orange;
     font-weight: 700; }
-  .forma ul a {
+  .search ul a {
     text-decoration: none; }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  height: 100px;
-  margin-top: 20px;
-  width: 100%; }
+.wrapper_footer {
+  padding: 0px !important; }
+  .wrapper_footer .footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+    margin-top: 20px;
+    width: 100%; }
+  .wrapper_footer .footer_title {
+    font-size: 25px !important; }
 
-/************    homepage    **************/
+/************    homepage, seasons, crew, cast, akas    **************/
 .card {
   margin-bottom: 40px;
-  text-align: center; }
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .card .card-title {
+    font-weight: 700;
+    font-size: 19px; }
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 /*****************     singleShow page     *****************/
 .poster img {
@@ -66,5 +77,10 @@ input {
 
 #seasons {
   padding-left: 0px; }
+
+.title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px; }
 
 /*# sourceMappingURL=style.css.map */
