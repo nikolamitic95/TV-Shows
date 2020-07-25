@@ -7,7 +7,7 @@ DEMO: [TV Shows](https://nikolamitic95.github.io/TV-Shows/)
 
 ## Stack
 
-* Language: HTML5, CSS3, JS(ES6+)
+* Language: HTML5, SASS, JS(ES6+)
 * Library: Bootstrap
 * Package Manager: npm
 * Deployment: GitHub Pages
