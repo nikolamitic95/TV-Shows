@@ -40,7 +40,7 @@ export const renderShows = (shows) => {
 export const renderSingleShow = (show) => {
     
     const $img = document.createElement("img");
-    $img.setAttribute("src", show.image ? show.image.original : '../images/no-image.jpg');
+    $img.setAttribute("src", show.image.original);
     $showName.textContent = show.name;
     $poster.appendChild($img);
     $description.innerHTML = show.summary ? show.summary : "No description on the show...";
