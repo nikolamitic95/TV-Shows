@@ -12,9 +12,9 @@
   },
   "author": "Nikola Mitic",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nikolamitic95/TV-Shows/issues"
-  },
+  // "bugs": {
+  //   "url": "https://github.com/nikolamitic95/TV-Shows/issues"
+  // },
   "homepage": "http://github.com/nikolamitic95/TV-Shows",
   "dependencies": {
     "bootstrap": "^4.5.0",
