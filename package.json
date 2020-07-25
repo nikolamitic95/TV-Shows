@@ -4,7 +4,7 @@
   "description": "TV Shows is an application that allows you to search for existing TV shows, take a closer look at the summary, information about the seasons, episods, actors, authors and the show's country. Data provided by tvmaze.com. <br/>\r Fully responsive.",
   "main": "controller.js",
   "scripts": {
-    "deploy": "gh-pages id dist"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
