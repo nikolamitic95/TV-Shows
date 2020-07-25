@@ -83,7 +83,6 @@ export const renderSeasonsList = (data) => {
     for (let i = 0; i < 5; i++) {
         let $premiereDate = data[i].premiereDate ? data[i].premiereDate : "no premere date"
         let $endDate = data[i].endDate ? data[i].endDate : "no end date"
-
         const $li = document.createElement("li");
         $li.textContent = `${$premiereDate} - ${$endDate}`;
         $ul.appendChild($li)
