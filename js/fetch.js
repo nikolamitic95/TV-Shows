@@ -1,5 +1,5 @@
 export const fetch = (url, onSuccess) => {
-    const request = new XMLHttpRequest();
+    const request = new XMLHttpsRequest();
     request.open("GET", url);
     request.send();
 
