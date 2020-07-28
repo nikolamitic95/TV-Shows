@@ -6,6 +6,7 @@ const $searchList = document.querySelector(".search");
 const $poster = document.querySelector(".poster");
 const $showName = document.querySelector(".abouttitle");
 const $description = document.querySelector(".description");
+const $loading = document.querySelector(".loading")
 
 
 /*****************      render main page     *****************/
@@ -22,10 +23,11 @@ export const renderShows = (shows) => {
     });
 
     for (let i = 0; i < 52; i++) {
+        let $img = shows[i].image ? shows[i].image.medium : './images/no-image-355.jpg'
         allShowCards +=
             `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
-            <a href="about.html?=${shows[i].id}" ><img src="${shows[i].image.medium}" class="card-img-top" alt=""></a>
+            <a href="about.html?=${shows[i].id}" ><img src="${$img}" class="card-img-top" alt=""></a>
             <div class="card-body">
                 <h5 class="card-title">${shows[i].name}</h5>
         </div>
@@ -33,17 +35,18 @@ export const renderShows = (shows) => {
 </div>`
     }
     $listOfShows.innerHTML = allShowCards;
+    $loading.className="none"
 }
 
 /*******************      render single show page      ********************/
 
 export const renderSingleShow = (show) => {
-    
     const $img = document.createElement("img");
-    $img.setAttribute("src", show.image.original);
+    $img.setAttribute("src", show.image ? show.image.original : "./images/no-image.jpg");
     $showName.textContent = show.name;
     $poster.appendChild($img);
     $description.innerHTML = show.summary ? show.summary : "No description on the show...";
+    $loading.className="none"
 }
 
 /*****************     dropdown search list     **********************/
@@ -151,12 +154,11 @@ export const renderAkaList = (akas) => {
 /*******************      render season page     *******************/
 
 export const renderFullSeasons = (seasons) => {
-
     let allSeasonCards = '';
     $title.innerHTML = `Seasons (${seasons.length})`
 
     seasons.forEach(season => {
-        let $img = season.image ? season.image.medium : '../images/no-image-355.jpg'
+        let $img = season.image ? season.image.medium :  "./images/no-image-355.jpg"
         let $premiereDate = season.premiereDate ? season.premiereDate : "no premere date"
         let $endDate = season.endDate ? season.endDate : "no end date"
 
@@ -172,6 +174,7 @@ export const renderFullSeasons = (seasons) => {
 </div>`
     });
     $listOfShows.innerHTML = allSeasonCards;
+    $loading.className='none'
 }
 
 /******************   render actors page    *****************/
@@ -182,7 +185,7 @@ export const renderFullCast = (actors) => {
     let $actorCard = "";
 
     actors.forEach(actor => {
-        let $img = actor.person.image ? actor.person.image.medium : '../images/no-image-355.jpg'
+        let $img = actor.person.image ? actor.person.image.medium : './images/no-image-355.jpg'
         $actorCard += `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
             <img src="${$img}" class="card-img-top" alt="">
@@ -194,6 +197,7 @@ export const renderFullCast = (actors) => {
 </div>`
     })
     $listOfShows.innerHTML = $actorCard;
+    $loading.className="none"
 }
 
 /*************    render crew page  *****************/
@@ -204,7 +208,7 @@ export const renderFullCrew = (crew) => {
     let $crewCard = "";
 
     crew.forEach(cre => {
-        let $img = cre.person.image ? cre.person.image.medium : '../images/no-image-355.jpg'
+        let $img = cre.person.image ? cre.person.image.medium : './images/no-image-355.jpg'
 
         $crewCard += `<div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
@@ -217,6 +221,7 @@ export const renderFullCrew = (crew) => {
 </div>`
     })
     $listOfShows.innerHTML = $crewCard;
+    $loading.className="none"
 }
 
 /********************       render aka page       *********************/
@@ -241,6 +246,7 @@ export const renderFullAka = (akas) => {
 </div>`
     })
     $listOfShows.innerHTML = $akasCard;
+    $loading.className="none"
 }
 
 /*******************      render episode page     *******************/
@@ -251,7 +257,7 @@ export const renderEpisodes = (episodes) => {
     $title.innerHTML = `Episodes (${episodes.length})`
 
     episodes.forEach(episode => {
-        let $img = episode.image ? episode.image.medium : '../images/no-image-142.jpg'
+        let $img = episode.image ? episode.image.medium : './images/no-image-142.jpg'
 
         allEpisodeCards +=
             `<div class="col-sm-12 col-md-6 col-lg-3">
@@ -264,4 +270,23 @@ export const renderEpisodes = (episodes) => {
 </div>`
     });
     $listOfShows.innerHTML = allEpisodeCards;
+    $loading.className="none"
+}
+
+/*******************     render Loading     *******************/
+
+export const loading = () => {
+
+        $loading.innerHTML =
+        ` <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>`;
 }

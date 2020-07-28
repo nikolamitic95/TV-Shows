@@ -22,6 +22,12 @@ h1 {
     font-weight: bold;
 }
 
+@media only screen and (max-width: 492px) {
+    .center {
+        justify-content: center !important;
+    }
+}
+
 /************    search    **************/
 
 .search {
@@ -66,42 +72,50 @@ h1 {
         width: 47%;
     }
 }
-@media  screen and (max-width: 768px) and (min-width: 592px){
+@media only screen and (max-width: 492px) {
+    .search ul {
+        position: absolute;
+        top: 41%;
+        right: 25%;
+        width: 50%;
+    }
+}
+@media screen and (max-width: 768px) and (min-width: 592px) {
     .search ul {
         position: absolute;
         right: 10%;
         width: 36%;
     }
 }
-@media  screen and (max-width: 998px) and (min-width: 768px){
+@media screen and (max-width: 998px) and (min-width: 768px) {
     .search ul {
         position: absolute;
         right: 12%;
         width: 25%;
     }
 }
-@media  screen and (max-width: 1040px) and (min-width: 998px){
+@media screen and (max-width: 1040px) and (min-width: 998px) {
     .search ul {
         position: absolute;
         right: 4%;
         width: 23%;
     }
 }
-@media  screen and (max-width: 1150px) and (min-width: 1040px){
+@media screen and (max-width: 1150px) and (min-width: 1040px) {
     .search ul {
         position: absolute;
         right: 8%;
         width: 21%;
     }
 }
-@media  screen and (max-width: 1200px) and (min-width: 1150px){
+@media screen and (max-width: 1200px) and (min-width: 1150px) {
     .search ul {
         position: absolute;
         right: 10%;
         width: 20%;
     }
 }
-@media  screen and (max-width: 1350px) and (min-width: 1200px){
+@media screen and (max-width: 1350px) and (min-width: 1200px) {
     .search ul {
         position: absolute;
         right: 7%;
@@ -136,7 +150,7 @@ h1 {
         font-weight: 700;
         font-size: 19px;
     }
-    .card-subTitle{
+    .card-subTitle {
         font-weight: 600;
     }
 }
@@ -179,4 +193,86 @@ h1 {
     font-weight: 700;
     text-align: center;
     margin-bottom: 25px;
+}
+
+/************    Loading   **************/
+.sk-cube-grid {
+    width: 100px;
+    height: 100px;
+    margin: 100px auto;
+
+    .sk-cube {
+        width: 33%;
+        height: 33%;
+        background-color: #343a40;
+        float: left;
+        -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+        animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    }
+    .sk-cube1 {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+    }
+    .sk-cube2 {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+    }
+    .sk-cube3 {
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+    .sk-cube4 {
+        -webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+    }
+    .sk-cube5 {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+    }
+    .sk-cube6 {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+    }
+    .sk-cube7 {
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+    }
+    .sk-cube8 {
+        -webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+    }
+    .sk-cube9 {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+    }
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%,
+    70%,
+    100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+.none {
+    display: none !important;
 }
