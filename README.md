@@ -8,6 +8,6 @@ DEMO: [TV Shows](https://nikolamitic95.github.io/TV-Shows/)
 ## Stack
 
 * Language: HTML5, CSS3, JS(ES6+)
-* Library: Bootstrap
+* Library: Bootstrap, SASS
 * Package Manager: npm
 * Deployment: GitHub Pages
