@@ -5,7 +5,7 @@ import {
 import {
     renderShows, renderSingleShow, makingList, getInput, getInputValue,
     renderSeasonsList, renderCastList, renderFullCast, renderCrewList, renderAkaList,
-    renderFullCrew, renderFullAka, renderFullSeasons, renderEpisodes
+    renderFullCrew, renderFullAka, renderFullSeasons, renderEpisodes, loading
 } from './ui.js';
 
 
@@ -28,6 +28,7 @@ const searchList = () => {
 
 
 export const startHomepage = () => {
+    loading()
     fetchShows(renderShows);
     searchList();
 }
@@ -35,6 +36,7 @@ export const startHomepage = () => {
 
 export const startSingleShow = () => {
     const id = renderId()
+    loading()
     fetchShow(id, renderSingleShow);
     searchList()
     fetchShowSeasons(id, renderSeasonsList)
@@ -45,6 +47,7 @@ export const startSingleShow = () => {
 
 export const startCastList = () => {
     const id = renderId();
+    loading()
     fetchCast(id, renderFullCast)
     searchList();
 }
@@ -52,23 +55,27 @@ export const startCastList = () => {
 
 export const startCrewList = () => {
     const id = renderId();
+    loading()
     fetchCrew(id, renderFullCrew)
     searchList();
 }
 
 export const startAkaList = () => {
     const id = renderId();
+    loading()
     fetchAka(id, renderFullAka)
     searchList();
 }
 export const startSeasonsList = () => {
     const id = renderId();
+    loading()
     fetchShowSeasons(id, renderFullSeasons)
     searchList();
 }
 
 export const startEpisodePage = () =>{
     const id = renderId();
+    loading()
     fetchEpisodes(id, renderEpisodes)
     searchList();
 }
